@@ -3,11 +3,11 @@
 - And V
 - Or V
 - Xor V
-- Mux
-- DMux
-- Not16
-- And16
-- Or16
+- Mux V
+- DMux V
+- Not16 V
+- And16 V
+- Or16 V
 - Mux16
 - Or8Way
 - Mux4Way16
