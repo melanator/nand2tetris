@@ -1,8 +1,8 @@
 ## Order
-- Not
-- And
-- Or
-- Xor
+- Not V
+- And V
+- Or V
+- Xor V
 - Mux
 - DMux
 - Not16
