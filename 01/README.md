@@ -12,5 +12,5 @@
 - Or8Way V
 - Mux4Way16 V
 - Mux8Way16 V
-- DMux4Way
-- DMux8Way
+- DMux4Way V
+- DMux8Way V
