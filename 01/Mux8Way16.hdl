@@ -18,5 +18,38 @@ CHIP Mux8Way16 {
     OUT out[16];
 
     PARTS:
-    // Put your code here:
+    Not(in=sel[2], out=notsel2);
+    Not(in=sel[1], out=notsel1);
+    Not(in=sel[0], out=notsel0);
+    And(a=notsel0, b=notsel1, out=aand1);
+    And(a=aand1, b=notsel2, out=aand);
+    And(a=sel[0], b=notsel1, out=band1);
+    And(a=band1, b=notsel2, out=band);
+    And(a=notsel0, b=sel[1], out=cand1);
+    And(a=cand1, b=notsel2, out=cand);
+    And(a=sel[0], b=sel[1], out=dand1);
+    And(a=dand1, b=notsel2, out=dand);
+    And(a=notsel0, b=notsel1, out=eand1);
+    And(a=eand1, b=sel[2], out=eand);
+    And(a=sel[0], b=notsel1, out=fand1);
+    And(a=fand1, b=sel[2], out=fand);
+    And(a=notsel0, b=sel[1], out=gand1);
+    And(a=gand1, b=sel[2], out=gand);
+    And(a=sel[0], b=sel[1], out=hand1);
+    And(a=hand1, b=sel[2], out=hand);
+    And16And1(a=a, b=aand, out=amux);
+    And16And1(a=b, b=band, out=bmux);
+    And16And1(a=c, b=cand, out=cmux);
+    And16And1(a=d, b=dand, out=dmux);
+    And16And1(a=e, b=eand, out=emux);
+    And16And1(a=f, b=fand, out=fmux);
+    And16And1(a=g, b=gand, out=gmux);
+    And16And1(a=h, b=hand, out=hmux);
+    Or16(a=amux, b=bmux, out=ab);
+    Or16(a=ab, b=cmux, out=abc);
+    Or16(a=abc, b=dmux, out=abcd);
+    Or16(a=abcd, b=emux, out=abcde);
+    Or16(a=abcde, b=fmux, out=abcdef);
+    Or16(a=abcdef, b=gmux, out=abcdefg);
+    Or16(a=abcdefg, b=hmux, out=out);
 }
