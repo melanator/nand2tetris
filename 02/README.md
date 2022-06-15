@@ -1,6 +1,6 @@
 ## Order
-HalfAdder
-Fulladder
+HalfAdder V
+Fulladder V
 Add16
 Inc16
 ALU
