@@ -15,5 +15,16 @@ CHIP RAM8 {
     OUT out[16];
 
     PARTS:
-    // Put your code here:
+    /* This solution process every memory cell in one cycle, but RAM shall proceed only one cell, being called */
+    DMux8Way(in=load, sel=address, a=load0, b=load1, c=load2, d=load3, e=load4, f=load5, g=load6, h=load7);
+    DMux8Way16(in=in, sel=address, a=reg0, b=reg1, c=reg2, d=reg3, e=reg4, f=reg5, g=reg6, h=reg7);
+    Register(in=reg0, load=load0, out=regout0);
+    Register(in=reg1, load=load1, out=regout1);
+    Register(in=reg2, load=load2, out=regout2);
+    Register(in=reg3, load=load3, out=regout3);
+    Register(in=reg4, load=load4, out=regout4);
+    Register(in=reg5, load=load5, out=regout5);
+    Register(in=reg6, load=load6, out=regout6);
+    Register(in=reg7, load=load7, out=regout7);
+    Mux8Way16(a=regout0, b=regout1, c=regout2, d=regout3, e=regout4, f=regout5, g=regout6, h=regout7, sel=address, out=out);
 }
